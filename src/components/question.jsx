@@ -25,9 +25,10 @@ export default function Question({que, data, next}) {
         q.options.map((o, i) => <Option text={o} selected={selected} ans={q.answer} select={chose} id={i} key={o}/>)
       }
     </div>
-    <button onClick={() => {
+    { selected && <button onClick={() => {
       setSelected(null);
       next(selected === q.answer)
     }}>Next</button>
+    }
   </>
 }

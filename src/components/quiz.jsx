@@ -16,7 +16,7 @@ async function getData() {
     })
 }
 
-export default function Quiz() {
+export default function Quiz({setShowImage}) {
   const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [data, setData] = useState([]);
@@ -27,17 +27,23 @@ export default function Quiz() {
     questions && setLoading(false);
   }, [questions]);
 
+  useEffect(reset, [])
   useEffect(() => {
-    getData().then(ques => {
-      const shuffled = ques.sort(() => Math.random() - 0.5);
-      setQuestions(shuffled.slice(0, 4));
-      setData(shuffled.slice(0, 10))
-    })
-  }, [])
+    setShowImage(current < 4)
+  }, [current, setShowImage])
 
   function next(res) {
     setScore(s => res ? s + 1 : s);
     setCurrent(c => c + 1);
+  }
+  function reset() {
+    getData().then(ques => {
+      const shuffled = ques.sort(() => Math.random() - 0.5);
+      setQuestions(shuffled.slice(0, 4));
+      setData(shuffled.slice(0, 10))
+      setCurrent(0)
+      setScore(0)
+    })
   }
 
   return <div id='wrapper'>
@@ -47,7 +53,7 @@ export default function Quiz() {
       (
         current < questions.length
         ? <Question que={questions[current]} data={data} next={next}/>
-        : <Result score={score}/>
+        : <Result score={score} reset={reset}/>
       )
     }
   </div>

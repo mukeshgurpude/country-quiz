@@ -1,5 +1,5 @@
 export function getQuestion(que, countries) {
-  const type = ['flag', 'capital', 'capital2', 'population', 'region'][Math.floor(Math.random() * 4)];
+  const type = ['flag', 'capital', 'population', 'region'][Math.floor(Math.random() * 4)];
   
   const data = {
     question: null,
@@ -22,16 +22,6 @@ export function getQuestion(que, countries) {
         }
       }
       break;
-    case 'capital':
-      data.question = `What is the capital of ${que.name.common}?`;
-      data.answer = que.capital[0];
-      while (options.size < 3) {
-        const country = countries[Math.floor(Math.random() * countries.length)];
-        if (country.capital[0] !== data.answer) {
-          options.add(country.capital[0]);
-        }
-      }
-      break
     case 'population':
       data.question = `What is the population of ${que.name.common}?`;
       data.answer = que.population;
@@ -53,7 +43,7 @@ export function getQuestion(que, countries) {
         }
       }
       break
-    case 'capital2':
+    case 'capital':
       data.question = `${que.capital} is the capital of which country?`;
       data.answer = que.name.common;
       while (options.size < 3) {

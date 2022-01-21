@@ -15,7 +15,7 @@ body {
   display: grid;
   place-items: center;
   background: #121212 url('background.png') no-repeat center center;
-  color: #fff;
+  color: var(--main-color);
 }
 
 .flex-container {
@@ -25,4 +25,15 @@ body {
   gap: 1rem;
   &.column {flex-direction: column;}
   &.center {align-items: center;}
+}
+
+:root {
+  --main-color: #f2f2f2;
+  --q-color: #2f527b;
+  --option-color: #9094de;
+
+  --card-bg: #fff;
+  --option-correct-bg: #60bf88;
+  --option-wrong-bg: #ea8282;
+  --option-hover-bg: #f9a826;
 }

@@ -7,52 +7,72 @@
   @extend .column;
   @extend .center;
   min-width: 300px;
-  background-color: #fff;
+  max-width: 450px;
+  background-color: var(--main-color);
   min-height: 400px;
   position: relative;
   transform: translateY(-60px);
   z-index: 0;
   border-radius: 1em;
-  color: #121212;
+  color: var(--option-color);
+  padding: .5em;
 
-  & .question {padding-top: 40px;}
+  & .question {padding-top: 40px; color: var(--q-color);}
+  & button {
+    background-color: var(--option-hover-bg);
+    color: var(--main-color);
+    padding: .5em 1em;
+    border: none;
+    align-self: flex-end;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  & #reset {
+    background-color: transparent;
+    border: 2px solid var(--q-color);
+    color: var(--q-color);
+    align-self: center;
+    font-weight: bold;
+  }
 }
 
 .option {
-  --hover-bg: #f9a826;
-  --hover-color: #fff;
-  --bg: #fff;
-  --color: #121212;
+  --hover-bg: var(--option-hover-bg);
+  --hover-color: var(--main-color);
+  --bg: var(--main-color);
+  --color: var(--option-color);
   --content: '';
 
   color: var(--color);
   background-color: var(--bg);
   cursor: pointer;
 
-  width: 200px;
+  width: 250px;
   text-align: center;
   padding: .8em 2em;
   border-radius: 1em;
   position: relative;
-  border: 2px solid #121212;
+  border: 2px solid var(--option-color);
   border-radius: 1em;
   &.correct {
-    --bg: #60bf88;
+    --bg: var(--option-correct-bg);
     --color: #fff;
     --content: '✓';
     --hover-bg: var(--bg);
     --hover-color: var(--color);
-    border: none;
+    border-color: transparent;
   }
   &.wrong {
-    --bg: #ea8282;
+    --bg: var(--option-wrong-bg);
     --color: #fff;
     --content: 'x';
     --hover-bg: var(--bg);
     --hover-color: var(--color);
-    border: none;
+    border-color: transparent;
   }
   &:hover {
+    border-color: transparent;
     background-color: var(--hover-bg);
     color: var(--hover-color);
   }
