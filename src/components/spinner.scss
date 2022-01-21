@@ -1,0 +1,28 @@
+.spinner {
+  padding: 2em;
+  border: 2px solid transparent;
+  border-left-color: #000;
+  border-radius: 50%;
+  animation: rotate 1s infinite ease-in-out;
+  &+span::after {
+    content: '';
+    animation: ellipsis 1s infinite ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    display: none;
+    &+span::after {animation: none;}
+  }
+}
+
+@keyframes rotate{
+  to { transform: rotate(360deg);}
+}
+@keyframes ellipsis {
+  0% {content: '.';}
+  50% {content: '..';}
+  75% {content: '...';}
+}

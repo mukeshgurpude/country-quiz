@@ -1,6 +1,11 @@
+@import "index";
+
 #title {z-index: 1;}
 
 #wrapper {
+  @extend .flex-container;
+  @extend .column;
+  @extend .center;
   min-width: 300px;
   background-color: #fff;
   min-height: 400px;
@@ -8,4 +13,5 @@
   transform: translateY(-60px);
   z-index: 0;
   border-radius: 1em;
+  color: #121212;
 }
