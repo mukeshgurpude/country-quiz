@@ -1,5 +1,5 @@
-export function getQuestion(que, countries) {
-  const type = ['flag', 'capital', 'population', 'region'][Math.floor(Math.random() * 4)];
+export function getQuestion(que, countries, i) {
+  const type = ['flag', 'capital', 'population', 'region'][i || Math.floor(Math.random() * 4)];
   
   const data = {
     question: null,
@@ -53,7 +53,6 @@ export function getQuestion(que, countries) {
       }
       break
     default:
-      break;
   }
   options.add(data.answer);
   data.options = [...options].sort(() => Math.random() - 0.5);

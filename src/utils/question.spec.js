@@ -51,3 +51,12 @@ test('Check the options', () => {
   expect(data.options.length).toBe(4);
   expect(data.options).toContain(data.answer);
 })
+
+test('Check all question types', () => {
+  const data = getQuestion(countries[0], [])
+  expect(data.question).toBeNull();
+  expect(data.options).toHaveLength(0);
+  for (let i = 0; i < 5; i++) {
+    getQuestion(countries[0], countries, i);
+  }
+})
