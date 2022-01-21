@@ -1,0 +1,11 @@
+#title {z-index: 1;}
+
+#wrapper {
+  min-width: 300px;
+  background-color: #fff;
+  min-height: 400px;
+  position: relative;
+  transform: translateY(-60px);
+  z-index: 0;
+  border-radius: 1em;
+}
