@@ -1,0 +1,32 @@
+name: Deploy to GH-Pages
+
+on:
+  push:
+    branches:
+    - main
+    - deploy
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Quick setup
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git config --global user.name "Mukesh Gurpude"
+          git config --global user.email "mukeshgurpude02@gmail.com"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy
+        run: |
+          npm run build
+          npm run deploy
