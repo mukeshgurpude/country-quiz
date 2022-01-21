@@ -35,7 +35,6 @@ export function getQuestion(que, countries) {
     case 'region':
       data.question = `What is the region of ${que.name.common} country?`;
       data.answer = que.region;
-      data.flag = que.flag;
       while (options.size < 3) {
         const country = countries[Math.floor(Math.random() * countries.length)];
         if (country.region !== data.answer) {

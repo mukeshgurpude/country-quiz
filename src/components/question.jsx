@@ -16,9 +16,9 @@ export default function Question({que, data, next}) {
   }, [que, data])
 
   return <>
-    <div className='question' style={{textAlign: 'center'}}>
-      <h2>{q.question}</h2>
-      {q.flag && <img height='60px' src={que.flags.svg} alt='flag'/>}
+    <div className='question' style={{padding: q?.flag ? '0':'20px'}}>
+      {q?.flag && <img height='60px' src={que.flags.svg} alt='flag'/>}
+      <h2 style={{textAlign: 'center'}}>{q.question}</h2>
     </div>
     <div className='flex-container column' style={{gap: '.5em'}}>
       {
