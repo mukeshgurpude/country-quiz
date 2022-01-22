@@ -54,6 +54,6 @@
     "gh-pages": "^3.2.3"
   },
   "jest": {
-    "coverageReporters": ["html", "text-summary"]
+    "coverageReporters": ["html", "text-summary", "lcov"]
   }
 }

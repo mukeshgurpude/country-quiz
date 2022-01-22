@@ -5,6 +5,7 @@ on:
     branches:
     - main
     - deploy
+    - codecov
 
   workflow_dispatch:
 
@@ -30,3 +31,21 @@ jobs:
         run: |
           npm run build
           npm run deploy
+
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm test -- --coverage
+
+      - name: Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
