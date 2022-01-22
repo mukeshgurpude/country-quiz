@@ -18,4 +18,8 @@
       Challenge
     </a>
   </h3>
+  <h4>
+    <a href="https://github.com/mukeshgurpude/country-quiz/actions/workflows/deploy.yml"><img src="https://github.com/mukeshgurpude/country-quiz/actions/workflows/deploy.yml/badge.svg" alt="Deploy to GH-Pages"></a>
+    <a href="https://codecov.io/gh/mukeshgurpude/country-quiz"><img src="https://codecov.io/gh/mukeshgurpude/country-quiz/branch/main/graph/badge.svg?token=9WTT5ZWNOE" alt="codecov"></a>
+  </h4>
 </div>
