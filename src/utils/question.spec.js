@@ -24,3 +24,17 @@ test('Check all question types', () => {
     getQuestion(countries[0], countries, i);
   }
 })
+
+test('Results should be correct', () => {
+  let data = getQuestion(countries[0], countries, 0);
+  expect(data.options).toContain(data.answer);
+  expect(data.options).toHaveLength(4);
+  expect(data.flag).toBeTruthy()
+
+  for (let i = 1; i < 4; i++) {
+    data = getQuestion(countries[0], countries, i);
+    expect(data.options).toContain(data.answer);
+    expect(data.options).toHaveLength(4);
+    expect(data.flag).toBeNull()
+  }
+})
