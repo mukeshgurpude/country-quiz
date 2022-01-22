@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Option from './option';
 import { getQuestion } from "../utils/question";
 
-export default function Question({que, data, next}) {
-  const [q, setData] = useState(getQuestion(que, data));
+export default function Question({que, data, next, t}) {
+  const [q, setData] = useState(getQuestion(que, data, t));
   const [selected, setSelected] = useState(null);
 
   function chose(value) {
