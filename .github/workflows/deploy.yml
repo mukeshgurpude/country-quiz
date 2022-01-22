@@ -1,4 +1,4 @@
-name: Deploy to GH-Pages
+name: Test and deploy
 
 on:
   push:
@@ -13,7 +13,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
+    depends_on: ci
     runs-on: ubuntu-latest
 
     steps:
@@ -51,4 +52,3 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unittests

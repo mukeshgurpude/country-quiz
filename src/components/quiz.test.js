@@ -1,5 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Quiz, { getData } from './quiz';
 
 const setShowImage = jest.fn();
@@ -22,12 +21,10 @@ test('Result is rendered after all questions', async () => {
   // Solve all questions
   for (let i = 0; i < 4; i++) {
     const option = await screen.findByTestId('A')
-    // eslint-disable-next-line
-    act(() => userEvent.click(option))  // mark anser
+    fireEvent.click(option)  // mark anser
 
     const button = await screen.findByRole('button')
-    // eslint-disable-next-line
-    act(() => userEvent.click(button))  // move to next question
+    fireEvent.click(button)  // move to next question
   }
   // Result is rendered
   const result = await screen.findByText(/results/i)
@@ -39,8 +36,7 @@ test('Result is rendered after all questions', async () => {
 
   // Reset button is rendered
   const button = await screen.findByRole('button')
-  // eslint-disable-next-line
-  act(() => userEvent.click(button))
+  fireEvent.click(button)
   const option = await screen.findByTestId('A')
   expect(option).toBeInTheDocument()
 })
