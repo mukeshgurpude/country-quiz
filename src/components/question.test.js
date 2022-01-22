@@ -2,7 +2,6 @@
 
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { getQuestion } from '../utils/question';
 import Question from './question'
 
 let i = 0

@@ -12,8 +12,8 @@ export default function Question({que, data, next, t}) {
   }
 
   useEffect(() => {
-    setData(getQuestion(que, data))
-  }, [que, data])
+    setData(getQuestion(que, data, t))
+  }, [que, data, t])
 
   return <>
     <div className='question' style={{padding: q?.flag ? '0':'20px'}}>
