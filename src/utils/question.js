@@ -1,5 +1,5 @@
 export function getQuestion(que, countries, i) {
-  const type = ['flag', 'capital', 'population', 'region'][i || Math.floor(Math.random() * 4)];
+  const type = ['flag', 'capital', 'population', 'region'][i ?? Math.floor(Math.random() * 4)];
   
   const data = {
     question: null,
