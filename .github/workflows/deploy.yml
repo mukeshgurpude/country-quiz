@@ -5,6 +5,7 @@ on:
     branches:
     - main
     - deploy
+    - codecov
 
   workflow_dispatch:
 
