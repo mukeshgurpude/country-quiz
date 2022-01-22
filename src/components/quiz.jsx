@@ -3,7 +3,7 @@ import Spinner from "./spinner";
 import Result from './result'
 import Question from './question'
 
-async function getData() {
+export async function getData() {
   const data = localStorage.getItem('quizData');
   if (data) {
     return JSON.parse(data);
